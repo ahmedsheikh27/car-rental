@@ -1,12 +1,16 @@
+'use client'
+import CarsFilter from "@/components/Home/CarsFilter";
+import Hero from "@/components/Home/Hero";
+import SearchInput from "@/components/Home/SearchInput";
 
-import {
-  SignedOut,
-  UserButton
-} from '@clerk/nextjs'
 export default function Home() {
+
+  
   return (
     <div>
-      <UserButton></UserButton>
+      <Hero/>
+      <SearchInput/>
+      <CarsFilter/>
     </div>  
   );
 }
