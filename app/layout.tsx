@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import {
   ClerkProvider,
-  SignIn,
   SignedIn,
   SignedOut,
+  SignIn
 } from '@clerk/nextjs'
+
 import "./globals.css";
+import Navbar from "@/components/Navbar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,23 +27,29 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
+  
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
-  return (
+}>)
+ {
+   return (
     <ClerkProvider>
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-          <SignedIn>
-        {children}
-          </SignedIn>
-      </body>
-      <SignedOut>
-        <SignIn/>
-      </SignedOut>
-    </html>
+      <html lang="en">
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        
+            <SignedIn>
+              <Navbar />
+              {children}
+            </SignedIn> 
+          
+            <SignedOut >
+              <SignIn routing="hash" />
+            </SignedOut>
+        </body>
+
+      </html>
     </ClerkProvider>
   );
 }
