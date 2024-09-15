@@ -2,7 +2,7 @@ import React from 'react'
 
 export const CarsFilter = () => {
     return (
-        <div className='mt-10 flex items-center justify-between'>
+        <div className='mt-10 px-5 flex items-center justify-between'>
             <div>
                 <h2 className='text-[35px] font-bold'> Filter cars</h2>
                 <h2 className='text-[15px]'> Explore our cars you might like</h2>
