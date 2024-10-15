@@ -17,6 +17,7 @@ export const CarsFilter = () => {
                     <option disabled selected>Cars</option>
                     <option>BMW</option>
                     <option>Toyota</option>
+                    <option>Toyota</option>
                     <option>Nissan</option>
                     <option>Honda</option>
                 </select>
