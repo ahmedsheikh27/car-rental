@@ -13,8 +13,9 @@ export const Hero = () => {
                 <button className='bg-blue-500 rounded-full text-white p-2  w-[180px]'>Explor more</button>
             </div>
 
-            <div className='bg-blue-500 relative z-[12] rounded-tl-[30px] rounded-bl-[2000px] rounded-tr-[100px] rounded-br-[100px] w-auto h-[300px] lg:ml-[150px]'>
-                <Image src='/hero.png' alt='' width={500} height={400} />
+            <div className='lg:ml-[150px]'>
+                {/* <Image src='/hero.png' alt='' width={500} height={400} /> */}
+            <Image src='/hero-car.jpg' alt='' width={700} height={450}/>
             </div>
         </div>
     )
