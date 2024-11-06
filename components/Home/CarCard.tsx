@@ -1,13 +1,18 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaArrowRight } from 'react-icons/fa'
 import { FaGasPump } from 'react-icons/fa6'
 import { MdAirlineSeatReclineNormal } from 'react-icons/md'
 import { PiSteeringWheel } from 'react-icons/pi'
 
 function CarCard(props: any) {
-    const [car, setCar] = useState(props.car)
-    return (
+    const [car, setCar] = useState<any>()
+    useEffect(()=>{
+if(props.car) {
+    setCar(props.car)
+}
+    },[props.car])
+    return car&&(
         <div className="border rounded-[20px] bg-gray-200 m-5 p-3 max-w-[350px] h-[330px]  group relative">
             <h1 className='text-[30px] font-bold mb-2' >
                 {car.name}

@@ -7,24 +7,33 @@ import { getCarsList } from "@/services";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-useEffect(()=>{
-  carslist()
-},[])
+  useEffect(() => {
+    carslist()
+  }, [])
 
-const [carList, setCarList] = useState<any>([])
-  const carslist = async() => {
-    const result:any = await getCarsList()
+  const [carList, setCarList] = useState<any>([])
+  const [carOrgList, setCarOrgList] = useState<any>([])
+  const carslist = async () => {
+    const result: any = await getCarsList()
     setCarList(result.carLists)
-    console.log(result.carLists)
+    setCarOrgList(result.carLists);
   }
+
+const filterCarsList = (brand:string) => {
+const filterlist = carOrgList.filter((item:any) =>
+item.carBrand==brand)
+
+setCarList(filterlist)
+}
 
   return (
     <>
       <div>
         <Hero />
         <SearchInput />
-        <CarsFilter />
-        <CarLists carList={carList}/>
+        <CarsFilter carsList={carOrgList}
+          setBrand={(value: string) => filterCarsList(value)} />
+        <CarLists carList={carList} />
       </div>
     </>
   );
