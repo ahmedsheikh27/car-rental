@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 const CarsFilter = ({ carsList,setBrand}:any) => {
-    const [brandList, setBrandList] = useState([]);
+    const [brandList, setBrandList] = useState<any>();
 
     useEffect(() => {
         if (carsList && carsList.length > 0) {
@@ -9,13 +9,14 @@ const CarsFilter = ({ carsList,setBrand}:any) => {
         }
     }, [carsList]);
 
-    const brandSet = new Set();
     const filterCarsList = () => {
+        const brandSet = new Set();
         carsList.forEach((element:any) => {
             brandSet.add(element.carBrand);
         });
         setBrandList(Array.from(brandSet));
     };
+    
 
     return (
         <div className="mt-10 px-5 flex items-center justify-between">
