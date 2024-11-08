@@ -13,10 +13,12 @@ function CarCard(props: any) {
         }
     }, [props.car])
     return car && (
-        <div className="border rounded-[15px] bg-white p-3 max-w-[400px] w-[90%] h-full max-h-[400px] shadow-md shadow-gray-300 group relative">
-            <h1 className='text-[30px] font-bold mb-2' >
+        <div className="border rounded-[15px] bg-white p-3 w-full max-w-[300px] max-h-[400px] h-full 
+                        shadow-md shadow-gray-300 transition-transform duration-30 transform 
+                        hover:scale-110 hover:bg-gray-50 group relative overflow-hidden">
+            <h2 className='text-[28px] font-bold mb-2' >
                 {car.name}
-            </h1>
+            </h2>
             <img
                 src={car.carImage?.url}
                 alt={car.name}
@@ -44,7 +46,7 @@ function CarCard(props: any) {
                 </div>
             </div>
             <div className='flex justify-center items-center'>
-                <button className="flex justify-between items-center bg-blue-500 text-white w-[240px] font-semibold text-center py-2 px-4 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-0">
+                <button className="flex justify-between items-center bg-blue-500 text-white w-[240px] font-semibold text-center py-2 px-4 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-0 overflow-hidden">
                     Rent Now <FaArrowRight />
                 </button>
             </div>

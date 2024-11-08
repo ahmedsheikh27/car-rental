@@ -26,13 +26,21 @@ item.carBrand==brand)
 setCarList(filterlist)
 }
 
+const priceOrder = (order:any) => {
+  const sortData = [...carOrgList].sort((a,b)=>
+  order==-1? a.price - b.price:b.price - a.price);
+  setCarList(sortData)
+}
+
   return (
     <>
       <div>
         <Hero />
         <SearchInput />
         <CarsFilter carsList={carOrgList}
-          setBrand={(value: string) => filterCarsList(value)} />
+          setBrand={(value: string) => filterCarsList(value)} 
+          priceOrder={(value: string) => priceOrder(value)}
+          />
         <CarLists carList={carList} />
       </div>
     </>

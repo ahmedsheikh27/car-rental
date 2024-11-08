@@ -1,14 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import CarCard from './CarCard'
+import BookingModel from '../CarBooking/BookingModel'
 
-function CarLists(props:any) {
+function CarLists(props: any) {
+  const [isLoaded, setIsLoaded] = useState(true)
+  const [selectedCar, setSelectedCar] = useState<any>([])
+  useEffect(() => {
+    if (props.car) {
+      setIsLoaded(props.car)
+    }
+  }, [props.car])
   return (
     <div>
-        <div className="m-3 gap-2 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
-        {props.carList.map((car:any,index:number) => (
-           <CarCard car={car}/>
+        <div className="grid grid-cols-2 items-center justify-center md:grid-cols-3 lg:grid-cols-4 gap-2">
+        {!isLoaded && props.carList.map((car: any, index: number) => (
+          <div key={index} className=' mt-5 m-[10px] lg:mx-auto '
+          onClick={() => {(window as any).my_modal_4.showModal();
+            setSelectedCar(car)
+          }}>
+            <CarCard car={car} />
+            {/* You can open the modal using document.getElementById('ID').showModal() method */}
+          </div>
         ))}
-        </div>
+        {/* model */}
+        <dialog id="my_modal_4" className="modal">
+          <BookingModel  car={selectedCar}/>
+        </dialog>
+      </div>
     </div>
   )
 }
