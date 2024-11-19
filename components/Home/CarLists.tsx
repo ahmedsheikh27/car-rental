@@ -6,10 +6,10 @@ function CarLists(props: any) {
   const [isLoaded, setIsLoaded] = useState(true)
   const [selectedCar, setSelectedCar] = useState<any>([])
   useEffect(() => {
-    if (props.car) {
-      setIsLoaded(props.car)
+    if (props.carList) {
+      setIsLoaded(false)
     }
-  }, [props.car])
+  }, [props.carList])
   return (
     <div>
         <div className="grid grid-cols-2 items-center justify-center md:grid-cols-3 lg:grid-cols-4 gap-2">

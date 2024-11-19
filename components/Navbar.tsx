@@ -5,7 +5,7 @@ import React from 'react'
 export const Navbar = () => {
   return (
     
-    <div className='flex items-center justify-between px-5 shadow-sm border-b-[1px]'>
+    <div className='flex items-center justify-between w-full px-5 shadow-sm border-b-[1px]'>
       <Image src='/logo.png' alt='logo' width={150} height={50}/>
       <SignedIn>
       <div className='hidden md:flex gap-10'>

@@ -1,8 +1,10 @@
 'use client'
+import { BookingContext } from "@/context/BookingContext";
 import CarLists from "@/components/Home/CarLists";
 import CarsFilter from "@/components/Home/CarsFilter";
 import Hero from "@/components/Home/Hero";
 import SearchInput from "@/components/Home/SearchInput";
+import ToastMsg from "@/components/ToastMsg";
 import { getCarsList } from "@/services";
 import { useEffect, useState } from "react";
 
@@ -10,39 +12,47 @@ export default function Home() {
   useEffect(() => {
     carslist()
   }, [])
-
+  
   const [carList, setCarList] = useState<any>([])
   const [carOrgList, setCarOrgList] = useState<any>([])
+  const [toastMsg, setToastMsg] = useState<boolean>(false);
   const carslist = async () => {
     const result: any = await getCarsList()
     setCarList(result.carLists)
     setCarOrgList(result.carLists);
   }
+  
+  useEffect(() => {
+    if(toastMsg){
+      setTimeout(function(){
+        setToastMsg(false)
+      },4000)
+    }
+  }, [toastMsg])
+  const filterCarsList = (brand: string) => {
+    const filterlist = carOrgList.filter((item: any) =>
+      item.carBrand == brand)
 
-const filterCarsList = (brand:string) => {
-const filterlist = carOrgList.filter((item:any) =>
-item.carBrand==brand)
+    setCarList(filterlist)
+  }
 
-setCarList(filterlist)
-}
-
-const priceOrder = (order:any) => {
-  const sortData = [...carOrgList].sort((a,b)=>
-  order==-1? a.price - b.price:b.price - a.price);
-  setCarList(sortData)
-}
+  const priceOrder = (order: any) => {
+    const sortData = [...carOrgList].sort((a, b) =>
+      order == -1 ? a.price - b.price : b.price - a.price);
+    setCarList(sortData)
+  }
 
   return (
-    <>
-      <div>
+    <div className="p-5 sm:px-10 md:px-20">
+      <BookingContext.Provider value={[toastMsg, setToastMsg]}>
         <Hero />
         <SearchInput />
         <CarsFilter carsList={carOrgList}
-          setBrand={(value: string) => filterCarsList(value)} 
-          priceOrder={(value: string) => priceOrder(value)}
-          />
+          setBrand={(value: string) => filterCarsList(value)}
+          priceOrder={(value: string) => priceOrder(value)} />
         <CarLists carList={carList} />
-      </div>
-    </>
+        {toastMsg ? <ToastMsg msg={'Booking created successfully '} /> : null}
+      </BookingContext.Provider>
+    </div>
   );
 }
