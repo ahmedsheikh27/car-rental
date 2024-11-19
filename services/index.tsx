@@ -25,9 +25,9 @@ export const getCarsList = async () => {
 
   return result;
 }
-export const getUserLoaction = async () => {
+export const getLoaction = async () => {
   const query = gql`
-  query manLocation {
+  query Location {
   userLocations {
     address
   }

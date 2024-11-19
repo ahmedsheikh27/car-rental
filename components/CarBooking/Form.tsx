@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect, useState, useContext } from 'react';
-import { getUserLoaction, createBooking } from '@/services';
+import { getLoaction, createBooking } from '@/services';
 import { BookingContext } from '@/context/BookingContext';
 
 function Form({ car }: any) {
@@ -35,9 +35,16 @@ function Form({ car }: any) {
     }, [car]);
 
     const userLocation = async () => {
-        const resp = await getUserLoaction();
-        setPickLocation(resp?.userLocations );
+        try {
+            const resp = await getLoaction();
+            console.log('Response:', resp);
+            setPickLocation(resp?.userLocations || []);
+        } catch (error) {
+            console.error('Error fetching locations:', error);
+            setPickLocation([]);
+        }
     };
+    
 
     const handleChange = (event: any) => {
         setFormValue({
@@ -51,7 +58,7 @@ function Form({ car }: any) {
             console.log('Form Data:', formValue);
             const resp = await createBooking(formValue);
             console.log('Booking response:', resp);
-            if (resp){
+            if (resp) {
                 setToastMsg(true)
             }
         } catch (error) {
@@ -75,6 +82,7 @@ function Form({ car }: any) {
                             {loc?.address}
                         </option>
                     ))}
+
                 </select>
             </div>
             <div className="flex gap-5 mb-5">
