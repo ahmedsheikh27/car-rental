@@ -7,26 +7,31 @@ import SearchInput from "@/components/Home/SearchInput";
 import ToastMsg from "@/components/ToastMsg";
 import { getCarsList } from "@/services";
 import { useEffect, useState } from "react";
+import CarLoader from "@/components/loader/CarLoader";
 
 export default function Home() {
   useEffect(() => {
     carslist()
   }, [])
-  
+
   const [carList, setCarList] = useState<any>([])
   const [carOrgList, setCarOrgList] = useState<any>([])
   const [toastMsg, setToastMsg] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true); // Loader state
   const carslist = async () => {
-    const result: any = await getCarsList()
-    setCarList(result.carLists)
+    setLoading(true);
+    const result: any = await getCarsList();
+    setCarList(result.carLists);
     setCarOrgList(result.carLists);
-  }
-  
+    setLoading(false);
+  };
+
+
   useEffect(() => {
-    if(toastMsg){
-      setTimeout(function(){
+    if (toastMsg) {
+      setTimeout(function () {
         setToastMsg(false)
-      },4000)
+      }, 4000)
     }
   }, [toastMsg])
   const filterCarsList = (brand: string) => {
@@ -45,12 +50,20 @@ export default function Home() {
   return (
     <div className="p-5 sm:px-10 md:px-20">
       <BookingContext.Provider value={[toastMsg, setToastMsg]}>
-        <Hero />
-        <SearchInput />
-        <CarsFilter carsList={carOrgList}
-          setBrand={(value: string) => filterCarsList(value)}
-          priceOrder={(value: string) => priceOrder(value)} />
-        <CarLists carList={carList} />
+        {loading ? (
+          <CarLoader /> 
+        ) : (
+          <>
+            <Hero />
+            <SearchInput />
+            <CarsFilter
+              carsList={carOrgList}
+              setBrand={(value: string) => filterCarsList(value)}
+              priceOrder={(value: string) => priceOrder(value)}
+            />
+            <CarLists carList={carList} />
+          </>
+        )}
         {toastMsg ? <ToastMsg msg={'Booking created successfully '} /> : null}
       </BookingContext.Provider>
     </div>

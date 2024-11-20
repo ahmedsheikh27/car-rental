@@ -7,12 +7,12 @@ export const SearchInput = () => {
             
             <div className=" mx-auto px-4">
                 <div className="flex justify-center items-center">
-                    <div className="flex items-center bg-gray-100 rounded-full px-5 mt-8 gap-2 w-full sm:w-[500px]">
+                    <div className="flex items-center bg-gray-100 rounded-full px-5 mt-8 gap-2 w-full h-[60px] sm:w-[500px] ">
                         <FaLocationDot className="h-5 w-5 text-black" />
                         <input
                             placeholder="Location"
                             type="text"
-                            className="outline-none bg-transparent p-2 border-r-[1px] text-gray-500 w-1/2"
+                            className="outline-none bg-transparent p-2 border-r-[1px] text-gray-500 w-1/2 "
                         />
                         <input
                             type="date"

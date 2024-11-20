@@ -17,11 +17,13 @@ function BookingModel({ car }: any) {
                 </h3>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2'>
-                <div className='mt-8 mb-10'>
+                <div className="mt-11  mx-auto sm:mx-0 ">
                     <CarCard car={car} />
                 </div>
+
+
                 <div className='mt-8'>
-                    <Form  car={car}/>
+                    <Form car={car} />
                 </div>
                 {/* <img
                     className='mix-blend-multiply'
