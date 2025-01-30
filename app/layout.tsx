@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ClerkProvider, SignedIn, SignedOut, SignIn, SignInButton } from "@clerk/nextjs";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/footer/Footer";
 
 export const metadata: Metadata = {
   title: "Car Rental ",
@@ -30,6 +31,7 @@ export default function RootLayout({
               </h2>
             </div>
           </SignedOut>
+          <Footer/>
         </body>
 
       </html>

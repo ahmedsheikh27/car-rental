@@ -49,7 +49,7 @@ export const createBooking = async (formValue: any) => {
       $dropofftime: String!,
       $email: String!,
       $contactNumber: String!,
-      $carId: ID!
+      $carId: ID!,
     ) {
       createBooking(
         data: {

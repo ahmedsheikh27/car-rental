@@ -36,9 +36,9 @@ function Form({ car }: any) {
 
     const userLocation = async () => {
         try {
-            const resp = await getLoaction();
-            console.log('Response:', resp);
-            setPickLocation(resp?.userLocations || []);
+            const resp: any  = await getLoaction();
+            // console.log('Response:', resp);
+            setPickLocation(resp?.userLocations);
         } catch (error) {
             console.error('Error fetching locations:', error);
             setPickLocation([]);
