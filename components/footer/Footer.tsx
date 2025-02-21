@@ -28,7 +28,7 @@ export default function Footer() {
             <div className="container mx-auto p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center lg:text-left">
                 <div className="flex items-center justify-center lg:justify-start lg:items-center">
                     <FaOpencart size={50} className="text-blue-500 mr-3" />
-                    <h2 className="text-black text-3xl font-bold">Cartify</h2>
+                    <h2 className="text-black text-3xl font-bold">Car Rental</h2>
                 </div>
 
                 <div className="flex flex-col">
@@ -38,14 +38,14 @@ export default function Footer() {
                     <p>Delivery & returns</p>
                 </div>
                 <div className="flex flex-col">
-                    <h3 className="font-semibold mb-3">About Cartify</h3>
+                    <h3 className="font-semibold mb-3">About Car Rental</h3>
                     <p>About Us</p>
-                    <p>Careers at Cartify</p>
+                    <p>Careers at Car Rental</p>
                     <p>Investor site</p>
                 </div>
                 <div className="flex flex-col">
-                    <h3 className="font-semibold mb-3">More from Cartify</h3>
-                    <p>Mobile and Cartify apps</p>
+                    <h3 className="font-semibold mb-3">More from Car Rental</h3>
+                    <p>Mobile and Car Rental apps</p>
                     <p>Gift vouchers</p>
                     <p>Black Friday</p>
                 </div>
@@ -53,7 +53,7 @@ export default function Footer() {
 
             {/* Bottom Copyright */}
             <div className="border-t border-gray-700 text-center py-4 text-sm">
-                <p>Copyright © 2024 Cartify. All Rights Reserved.</p>
+                <p>Copyright © 2025 Car Rental. All Rights Reserved.</p>
                 <div className="flex justify-center gap-4 mt-2">
                     <p>Privacy & Cookies</p>
                     <p>T&Cs</p>
