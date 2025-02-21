@@ -3,23 +3,23 @@ import { FaMoneyCheckDollar } from "react-icons/fa6";
 
 export default function Footer() {
     return (
-        <footer className="bg-black text-white">
+        <footer className="bg-gray-50 text-black">
             {/* Top Section */}
             <div className="container mx-auto p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center border-b border-gray-700">
                 <div className="flex flex-col items-center">
-                    <FaTruck className="text-white text-3xl mb-2" />
+                    <FaTruck className="text-black text-3xl mb-2" />
                     <p>Free Shipping & Returns</p>
                 </div>
                 <div className="flex flex-col items-center">
-                    <FaMoneyCheckDollar className="text-white text-3xl mb-2" />
+                    <FaMoneyCheckDollar className="text-black text-3xl mb-2" />
                     <p>100% Money Back Guarantee</p>
                 </div>
                 <div className="flex flex-col items-center">
-                    <FaRedo className="text-white text-3xl mb-2" />
+                    <FaRedo className="text-black text-3xl mb-2" />
                     <p>Replacement in case of defect</p>
                 </div>
                 <div className="flex flex-col items-center">
-                    <FaLock className="text-white text-3xl mb-2" />
+                    <FaLock className="text-black text-3xl mb-2" />
                     <p>Safe and Secure Checkout</p>
                 </div>
             </div>
@@ -27,8 +27,8 @@ export default function Footer() {
             {/* Bottom Section */}
             <div className="container mx-auto p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center lg:text-left">
                 <div className="flex items-center justify-center lg:justify-start lg:items-center">
-                    <FaOpencart size={50} className="text-yellow-400 mr-3" />
-                    <h2 className="text-white text-3xl font-bold">Cartify</h2>
+                    <FaOpencart size={50} className="text-blue-500 mr-3" />
+                    <h2 className="text-black text-3xl font-bold">Cartify</h2>
                 </div>
 
                 <div className="flex flex-col">
