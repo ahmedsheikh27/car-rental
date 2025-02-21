@@ -1,5 +1,7 @@
 import request, { gql } from 'graphql-request'
 
+const uri : any = process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT_PUBLISHABLE_KEY
+
 export const getCarsList = async () => {
   const query = gql`
   query Carslists {
@@ -21,7 +23,7 @@ export const getCarsList = async () => {
 }
   `
 
-  const result = await request('https://ap-south-1.cdn.hygraph.com/content/cm17ip1br02l107wb2vosuc8z/master', query)
+  const result = await request(uri, query)
 
   return result;
 }
@@ -34,7 +36,7 @@ export const getLoaction = async () => {
 }
  `
 
-  const result = await request('https://ap-south-1.cdn.hygraph.com/content/cm17ip1br02l107wb2vosuc8z/master', query)
+  const result = await request(uri, query)
 
   return result;
 }
@@ -81,7 +83,7 @@ export const createBooking = async (formValue: any) => {
 
   try {
     const result = await request(
-      'https://ap-south-1.cdn.hygraph.com/content/cm17ip1br02l107wb2vosuc8z/master',
+      uri,
       query,
       variables
     );
